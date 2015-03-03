@@ -739,7 +739,7 @@ var RibbonPanel = function(graph, mainPanel, configPanel) {
 				setStyles();
 			},
 			scope: this
-		}, {
+		}, '-', {
 			itemId: 'align',
 			text: 'Align',
 			glyph: 0xf036,
@@ -856,7 +856,7 @@ var RibbonPanel = function(graph, mainPanel, configPanel) {
 					}
 				}]
 			}
-		}, '-', {
+		}, {
 			itemId: 'movemenu',
 			text: 'Order',
 			tooltip: getText('Change Order'),
@@ -993,14 +993,14 @@ var RibbonPanel = function(graph, mainPanel, configPanel) {
 				loadStyleSheet();
 			},
 			scope: this
-		},
+		}/*,
 		{
 			excludeFromContext: true,
 			itemId: 'styleManagerMenu',
 			text: getText('Style Sheet Manager'),
 			glyph: 0xf1c0,
 			handler: showStyleManager
-		}
+		}*/
 	];
 
 
@@ -1065,7 +1065,7 @@ var RibbonPanel = function(graph, mainPanel, configPanel) {
 
 								graph.orderCells(false);
 							}
-						}, '-', {
+						},/* '-', {
 							xtype: "component",
 							indent: false,
 							html: "<b>" + getText('Agent Based Modeling') + "</b>",
@@ -1101,7 +1101,7 @@ var RibbonPanel = function(graph, mainPanel, configPanel) {
 
 								graph.orderCells(false);
 							}
-						},
+						},*/
 						'-', {
 
 							xtype: "component",
@@ -1134,7 +1134,7 @@ var RibbonPanel = function(graph, mainPanel, configPanel) {
 
 								graph.orderCells(false);
 							}
-						}, {
+						},/* {
 							itemId: 'buttonBut',
 							text: getText('Add Interactive Button'),
 							glyph: 0xf196,
@@ -1145,7 +1145,7 @@ var RibbonPanel = function(graph, mainPanel, configPanel) {
 								graph.orderCells(false);
 							}
 
-						}, '-', {
+						},*/ '-', {
 							itemId: 'ghostBut',
 							text: getText('Ghost Primitive'),
 							glyph: 0xf0c5,
@@ -1173,7 +1173,7 @@ var RibbonPanel = function(graph, mainPanel, configPanel) {
 					{
 						//glyph: 0xf0d1,
 						//iconCls: 'green-icon',
-						text: 'Flows/Transitions',
+						text: getText('Flows'),
 						id: "connect",
 						pressed: true,
 						tooltip: "Use flows or transitions to connect primitives. Select a primitive and drag the arrow that appears over the primitive to make a connection. Flows transfer material. Transitions switch between states."
@@ -1181,7 +1181,7 @@ var RibbonPanel = function(graph, mainPanel, configPanel) {
 					{
 						//glyph: 0xf095,
 						//iconCls: 'green-icon',
-						text: 'Links',
+						text: getText('Links'),
 						tooltip: "Use links to connect primitives. Select a primitive and drag the arrow that appears over the primitive to make a connection. Links transfer information."
 					}
 					]
@@ -1223,7 +1223,7 @@ var RibbonPanel = function(graph, mainPanel, configPanel) {
 					tooltip: getText('Configure time start and stop') + ' ' + cmd("L"),
 					handler: timeSettingsFn,
 					scope: this
-				},
+				}, /*
 				'-', {
 					hidden: (!viewConfig.saveEnabled),
 					text: getText('Save'),
@@ -1235,7 +1235,7 @@ var RibbonPanel = function(graph, mainPanel, configPanel) {
 					},
 					scope: this
 
-				}, {
+				},*/ {
 
 					itemId: 'run',
 					text: getText('Simulate'),
@@ -1291,10 +1291,9 @@ var RibbonPanel = function(graph, mainPanel, configPanel) {
 		   					scope: this
 		   				},
 						'-',
-						editActions.copy,
 						editActions.cut,
+						editActions.copy,
 						editActions.paste,
-						'-',
 						editActions["delete"],
 						'-', {
 							text: getText('Find/Replace...'),
@@ -1309,11 +1308,7 @@ var RibbonPanel = function(graph, mainPanel, configPanel) {
 									findNext();
 								}
 							}
-						}, '-', {
-							text: getText("Print..."),
-							glyph: 0xf02f,
-							handler: printGraph
-						},
+						}, 
 						'-', {
 							itemId: "zoomMenuButton",
 							text: getText('Zoom'),
@@ -1364,7 +1359,7 @@ var RibbonPanel = function(graph, mainPanel, configPanel) {
 					itemId: 'style',
 					menu: styleMenu/*,
 					glyph: 0xf0d0*/
-				}, {
+				},/* {
 					xtype: 'tbseparator',
 					hidden: !viewConfig.actionsGroup
 				}, 
@@ -1415,7 +1410,7 @@ var RibbonPanel = function(graph, mainPanel, configPanel) {
 							scope: this
 						}],
 					glyph: 0xf1e0
-				},
+				},*/
 				 {
 
 					hidden: (!viewConfig.toolsGroup),
@@ -1434,52 +1429,32 @@ var RibbonPanel = function(graph, mainPanel, configPanel) {
 						}, 
 						'-', {
 							hidden: (!is_editor),
-							text: "Import",
+							text: getText("Import Insight Maker File..."),
 							glyph: 0xf093,
-							menu: [{
-									text: getText("Insight Maker URL..."),
-									handler: function() {
-										showInsertModelWindow({
-											x: 200,
-											y: 100
-										});
-									}
-								}, {
-									text: getText("Insight Maker File..."),
-									handler: importInsightMaker
-								},
-
-								'-', {
-									text: getText("XMILE File... <span style='color: #bbb'>(Experimental)<span>"),
-									handler: importXMILE
-								}
-
-							]
-						},  {
+							handler: importInsightMaker
+						}, {
 							hidden: (!is_editor),
-							text: "Export",
+							text: getText("Export Insight Maker File"),
 							glyph: 0xf019,
-							menu: [{
-									text: getText("Download Insight Maker File"),
 									handler: function(){
 //										new mxXmlRequest(builder_path + "/download.php", $.param({name: "Model", format: "InsightMaker", "data": getGraphXml(graph).replace(/mxGraphModel/g,"InsightMakerModel")})).simulate(document, "_blank");
-										window.open('data:application/binary;charset=utf-8,' + encodeURIComponent(getGraphXml(graph).replace(/mxGraphModel/g,"InsightMakerModel")));
+										window.open('data:application/binary;charset=utf-8,' + encodeURIComponent(getGraphXml(graph).replace(/mxGraphModel/g,"InsightMakerModel")), '_blank');
 									}
-								},'-',
-								{
-									/*hidden: (!is_editor),*/
-									itemId: 'textBut',
-									text: getText('Complete Equation List'),
-									/*glyph: 0xf03a,*/
-									tooltip: getText('A listing of all equations in the Insight'),
-									handler: textEquations,
-									scope: this
-								}
-
-							]
+						}, {
+							text: getText("Print..."),
+							glyph: 0xf02f,
+							handler: printGraph
 						}, {
 							xtype: 'menuseparator',
 							hidden: (!is_editor) || is_ebook
+						}, {
+							hidden: (!is_editor),
+							itemId: 'textBut',
+							text: getText('Complete Equation List'),
+							glyph: 0xf03a,
+							tooltip: getText('A listing of all equations in the Insight'),
+							handler: textEquations,
+							scope: this
 						}, {
 							text: getText('Identify Loops') + "...",
 							glyph: 0xf1ce,

@@ -309,7 +309,7 @@ function isValued(cell) {
 
 function setSaveEnabled(e) {
 	if (is_editor && (!is_embed)) {
-		var b = ribbonPanelItems().getComponent('savebut');
+/*		var b = ribbonPanelItems().getComponent('savebut');
 		if (e && unfoldingManager.unfolding == false) {
 			b.setDisabled(false);
 			b.setText('Save');
@@ -317,7 +317,7 @@ function setSaveEnabled(e) {
 			b.setDisabled(true);
 			b.setText('Saved');
 		}
-	}
+*/	}
 }
 
 function updateWindowTitle() {
