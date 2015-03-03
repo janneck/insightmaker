@@ -1462,7 +1462,8 @@ var RibbonPanel = function(graph, mainPanel, configPanel) {
 							menu: [{
 									text: getText("Download Insight Maker File"),
 									handler: function(){
-										new mxXmlRequest(builder_path + "/download.php", $.param({name: "Model", format: "InsightMaker", "data": getGraphXml(graph).replace(/mxGraphModel/g,"InsightMakerModel")})).simulate(document, "_blank");
+//										new mxXmlRequest(builder_path + "/download.php", $.param({name: "Model", format: "InsightMaker", "data": getGraphXml(graph).replace(/mxGraphModel/g,"InsightMakerModel")})).simulate(document, "_blank");
+										window.open('data:application/binary;charset=utf-8,' + encodeURIComponent(getGraphXml(graph).replace(/mxGraphModel/g,"InsightMakerModel")));
 									}
 								},'-',
 								{
