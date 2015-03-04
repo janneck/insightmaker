@@ -2063,7 +2063,7 @@ function showContextMenu(node, e) {
 					}, 20);
 				}
 			}, {
-				text: getText("Create Variable"),
+				text: getText("Add Variable"),
 				glyph: 0xf0e4,
 				handler: function() {
 					graph.model.beginUpdate();
@@ -2080,7 +2080,7 @@ function showContextMenu(node, e) {
 					}, 20);
 				}
 			}, {
-				text: getText("Create Converter"),
+				text: getText("Add Converter"),
 				glyph: 0xf1fe,
 				handler: function() {
 					graph.model.beginUpdate();
@@ -2149,7 +2149,7 @@ function showContextMenu(node, e) {
 					}, 20);
 				}
 			}, */ '-', {
-				text: getText("Create Text"),
+				text: getText("Add Text Field"),
 				glyph: 0xf035,
 				handler: function() {
 					graph.model.beginUpdate();
@@ -2166,7 +2166,7 @@ function showContextMenu(node, e) {
 					}, 20);
 				}
 			}, {
-				text: getText("Create Picture"),
+				text: getText("Add Picture"),
 				glyph: 0xf03e,
 				handler: function() {
 					graph.model.beginUpdate();
@@ -2244,7 +2244,7 @@ function showContextMenu(node, e) {
 				disabled: graph.getSelectionCount() != 1 || ((!isValued(graph.getSelectionCell()) && graph.getSelectionCell().value.nodeName != "Picture")) || graph.getSelectionCell().value.nodeName == "Flow" || graph.getSelectionCell().value.nodeName == "Ghost",
 				handler: makeGhost
 			}, {
-				text: getText("Create Folder"),
+				text: getText("Make Folder"),
 				glyph: 0xf114,
 				disabled: !selected,
 				handler: makeFolder

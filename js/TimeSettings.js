@@ -10,7 +10,7 @@ terms of the Insight Maker Public License (https://InsightMaker.com/impl).
 
 var timeSettingsFn = function(){
     var setting = getSetting();
-	
+
 	showTimeSettings({
 		algorithm: setting.getAttribute("SolutionAlgorithm"),
 		timeStep: setting.getAttribute("TimeStep"),
@@ -144,7 +144,7 @@ function showTimeSettings(config)
                 id: 'stimepause',
                 allowBlank: true,
                 minValue: 0,
-				emptyText: 'No Pause',
+				emptyText: getText('No Pause'),
                 decimalPrecision: 12,
 				value: config.timePause
             }),
@@ -188,10 +188,10 @@ function showTimeSettings(config)
                 scale: "large",
                 text: getText('Apply'),
                 handler: function() {
-				
+
                     graph.getModel().beginUpdate();
 					if(config.cell){
-						
+
 	                    edit = new mxCellAttributeChange(
 	                   	 	config.cell,
 							"Solver",
@@ -202,10 +202,10 @@ function showTimeSettings(config)
 							})
 						);
 	                    graph.getModel().execute(edit);
-						
+
 					}else{
 					    var setting = getSetting();
-					
+
 
 	                    var edit = new mxCellAttributeChange(
 	                    setting, "SolutionAlgorithm",
@@ -226,7 +226,7 @@ function showTimeSettings(config)
 	                    setting, "TimeStep",
 	                    Ext.getCmp('stimestep').getValue().toString());
 	                    graph.getModel().execute(edit);
-						
+
 	                    edit = new mxCellAttributeChange(
 	                    setting, "TimePause",
 	                    Ext.getCmp('stimepause').getValue());
@@ -239,7 +239,7 @@ function showTimeSettings(config)
 					}
 
                     graph.getModel().endUpdate();
-					
+
                     configWin.close();
                 }
             }
@@ -248,8 +248,8 @@ function showTimeSettings(config)
 
     });
 
-   
+
     configWin.show();
-	
+
 	return configWin;
 };

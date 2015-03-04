@@ -38,20 +38,20 @@ var reverseDirection = function() {
 									}
 									edit = new mxGeometryChange(graph.getModel(), myCells[i], geo);
 									graph.getModel().execute(edit);
-									
-						
+
+
 									if(myCells[i].value.nodeName == "Link"){
 										linkBroken(myCells[i]);
 									}
 								}
 							}
 						}
-						
+
 						graph.getModel().endUpdate();
 
 
 					};
-					
+
 var showMacros = function(annotations) {
 		var equationEditor = new Ext.ux.AceEditor({
 			id: 'macroTxt',
@@ -88,7 +88,7 @@ var showMacros = function(annotations) {
 			plain: true,
 			items: [
 				equationEditor,
-				
+
 				 {
 					xtype: "box",
 					padding: 8,
@@ -127,7 +127,7 @@ var showMacros = function(annotations) {
 
 			]
 		});
-	
+
 	macrosWin.show();
 
 	equationEditor.focus(true, true);
@@ -253,7 +253,7 @@ var RibbonPanel = function(graph, mainPanel, configPanel) {
 				}
 
 				graph.getModel().endUpdate();
-				
+
 				if(document.activeElement && document.activeElement.blur){
 					document.activeElement.blur()
 				}
@@ -321,8 +321,8 @@ var RibbonPanel = function(graph, mainPanel, configPanel) {
 			graph.setCellStyles(mxConstants.STYLE_ROUNDED, 0, excludeType(graph.getSelectionCells(), "Ghost"));
 		}
 	}];
-	
-	
+
+
 	function customColor(fn){
 		return function(){
 			getCustomColor(function(col){
@@ -330,7 +330,7 @@ var RibbonPanel = function(graph, mainPanel, configPanel) {
 			});
 		}
 	}
-	
+
 	var fontColorMenu = [
 		{
 				xtype: 'colorpicker',
@@ -351,7 +351,7 @@ var RibbonPanel = function(graph, mainPanel, configPanel) {
 					handler: customColor(function(color){graph.setCellStyles(mxConstants.STYLE_FONTCOLOR, color, excludeType(graph.getSelectionCells(), "Ghost"))})
 				}
 	];
-	
+
 	var widthMenu = [];
 
 	function widthItem(size) {
@@ -369,7 +369,7 @@ var RibbonPanel = function(graph, mainPanel, configPanel) {
 	for (var i = 15; i <= 50; i += 5) {
 		widthItem(i);
 	}
-	
+
 	function capMenu(start) {
 
 		function createSetter(val) {
@@ -401,8 +401,8 @@ var RibbonPanel = function(graph, mainPanel, configPanel) {
 		}
 		return items;
 	}
-	
-	
+
+
 	var lineColorMenu =  [{
 		xtype: 'colorpicker',
 		colors: colors,
@@ -586,7 +586,7 @@ var RibbonPanel = function(graph, mainPanel, configPanel) {
 		queryMode: 'local',
 		width: 50,
 		triggerAction: 'all',
-		emptyText: 'Font Size...',
+		emptyText: getText('Font Size...'),
 		selectOnFocus: true,
 		listeners: {
 			select: function(p, entry) {
@@ -665,9 +665,9 @@ var RibbonPanel = function(graph, mainPanel, configPanel) {
 			handler: function(item) {
 				setZoom("out");
 			}
-		}, '-', {
+		}, {
 			text: getText('Actual Size'),
-			
+
 			scope: this,
 			handler: function(item) {
 				setZoom("actual");
@@ -680,7 +680,7 @@ var RibbonPanel = function(graph, mainPanel, configPanel) {
 			}
 		}]
 	};
-	
+
 
 	window.styleMenu = [
 
@@ -690,26 +690,26 @@ var RibbonPanel = function(graph, mainPanel, configPanel) {
 
 		{
 			itemId: 'fontcolor',
-			text: 'Font Color',
+			text: getText('Font Color'),
 			tooltip: getText('Font Color'),
 			iconCls: 'fontcolor-icon',
 			menu: fontColorMenu
 		}, {
 			itemId: 'linecolor',
-			text: 'Line Color',
+			text: getText('Line Style'),
 			tooltip: getText('Line Style'),
 			iconCls: 'linecolor-icon',
 			menu: lineColorMenu
 		}, {
 			itemId: 'fillcolor',
-			text: 'Fill Color',
+			text: getText('Fill Color'),
 			tooltip: getText('Fill Color'),
 			iconCls: 'fillcolor-icon',
 			menu: fillColorMenu
 		}, '-', {
 			itemId: 'bold',
 			xtype: 'menucheckitem',
-			text: 'Bold',
+			text: getText('Bold'),
 			glyph: 0xf032,
 			tooltip: getText('Bold') + ' ' + cmd("B"),
 			handler: function() {
@@ -720,7 +720,7 @@ var RibbonPanel = function(graph, mainPanel, configPanel) {
 		}, {
 			itemId: 'italic',
 			xtype: 'menucheckitem',
-			text: 'Italic',
+			text: getText('Italic'),
 			tooltip: getText('Italic') + ' ' + cmd("I"),
 			glyph: 0xf033,
 			handler: function() {
@@ -731,7 +731,7 @@ var RibbonPanel = function(graph, mainPanel, configPanel) {
 		}, {
 			itemId: 'underline',
 			xtype: 'menucheckitem',
-			text: 'Underline',
+			text: getText('Underline'),
 			tooltip: getText('Underline') + ' ' + cmd("U"),
 			glyph: 0xf0cd,
 			handler: function() {
@@ -741,7 +741,7 @@ var RibbonPanel = function(graph, mainPanel, configPanel) {
 			scope: this
 		}, '-', {
 			itemId: 'align',
-			text: 'Align',
+			text: getText('Align'),
 			glyph: 0xf036,
 			tooltip: getText('Label Position'),
 			handler: function() {},
@@ -786,7 +786,7 @@ var RibbonPanel = function(graph, mainPanel, configPanel) {
 					}
 				}, {
 					text: getText('Position Top'),
-					
+
 					scope: this,
 					iconCls: 'top-icon',
 					handler: function() {
@@ -838,7 +838,7 @@ var RibbonPanel = function(graph, mainPanel, configPanel) {
 					}
 				}, {
 					text: getText('Position Left'),
-					
+
 					scope: this,
 					iconCls: 'right-icon',
 					handler: function() {
@@ -858,7 +858,7 @@ var RibbonPanel = function(graph, mainPanel, configPanel) {
 			}
 		}, {
 			itemId: 'movemenu',
-			text: 'Order',
+			text: getText('Order'),
 			tooltip: getText('Change Order'),
 			glyph: 0xf0c9,
 			handler: function() {},
@@ -885,8 +885,8 @@ var RibbonPanel = function(graph, mainPanel, configPanel) {
 			}
 		}, '-', {
 			itemId: 'picturemenu',
-			text: 'Primitive Picture',
-			tooltip: getText('Adjust Picture'),
+			text: getText('Primitive Picture'),
+			tooltip: getText('Primitive Picture'),
 			glyph: 0xf03e,
 			handler: function() {},
 			menu: {
@@ -899,7 +899,7 @@ var RibbonPanel = function(graph, mainPanel, configPanel) {
 						}
 					},
 					'-', {
-						text: "Custom Image",
+						text: getText("Custom Image"),
 						glyph: 0xf0c1,
 						handler: function() {
 							Ext.Msg.prompt("Image URL", "<p>You may use a link to an existing custom image stored on-line. Please note that the image is only stored as a link within Insight Maker so you need to ensure that the original image stays on-line for it to remain in your model.</p><p>Enter the full URL to the image:</p>", function(btn, val) {
@@ -963,33 +963,33 @@ var RibbonPanel = function(graph, mainPanel, configPanel) {
 			glyph: 0xf043,
 			handler: function() {
 				var cells = getSelected();
-				
+
 				var stylesheet = getStyleSheet();
-				
+
 				cells.forEach(function(x){
 					var style = x.getStyle();
 					var styles = style.split(";");
 					var obj = {};
-					
+
 					var o2 = graph.getStylesheet().getCellStyle(x.value.nodeName.toLowerCase());
-					
+
 					for(var item in o2){
 						obj[item] = o2[item];
 					}
-					
+
 					for(var i = 1; i < styles.length; i++){
 						var kv = styles[i].split("=");
 						obj[kv[0]] = kv[1];
 					}
-					
+
 					stylesheet[x.value.nodeName] = obj;
 				});
-				
+
 
 				graph.getModel().beginUpdate();
 				setStyleSheet(stylesheet);
 				graph.getModel().endUpdate();
-				
+
 				loadStyleSheet();
 			},
 			scope: this
@@ -1215,7 +1215,7 @@ var RibbonPanel = function(graph, mainPanel, configPanel) {
 				}, {
 					xtype: 'tbseparator',
 					hidden: (!is_editor) || is_embed
-				}, 
+				},
 				{
 					itemId: 'config',
 					text: getText('Settings'),
@@ -1272,7 +1272,7 @@ var RibbonPanel = function(graph, mainPanel, configPanel) {
 				    	{
 		   					hidden: !viewConfig.actionsGroup,
 		   					itemId: 'undo',
-		   					text: "Undo",
+		   					text: getText("Undo"),
 		   					glyph: 0xf0e2,
 		   					tooltip: getText('Undo change') + ' ' + cmd("Z"),
 		   					handler: function() {
@@ -1282,7 +1282,7 @@ var RibbonPanel = function(graph, mainPanel, configPanel) {
 		   				}, {
 		   					hidden: !viewConfig.actionsGroup,
 		   					itemId: 'redo',
-		   					text: "Redo",
+		   					text: getText("Redo"),
 		   					glyph: 0xf01e,
 		   					tooltip: getText('Redo change') + ' ' + cmd("Y"),
 		   					handler: function() {
@@ -1308,13 +1308,8 @@ var RibbonPanel = function(graph, mainPanel, configPanel) {
 									findNext();
 								}
 							}
-						}, 
-						'-', {
-							itemId: "zoomMenuButton",
-							text: getText('Zoom'),
-							glyph: 0xf002,
-							menu: zoomMenu
 						},
+						'-',
 						{
 							text: getText('Layout Diagram'),
 							glyph: 0xf0e8,
@@ -1351,6 +1346,11 @@ var RibbonPanel = function(graph, mainPanel, configPanel) {
 										}
 									}
 							]
+						}, {
+							itemId: "zoomMenuButton",
+							text: getText('Zoom'),
+							glyph: 0xf002,
+							menu: zoomMenu
 						}
 					]
 				},{
@@ -1362,7 +1362,7 @@ var RibbonPanel = function(graph, mainPanel, configPanel) {
 				},/* {
 					xtype: 'tbseparator',
 					hidden: !viewConfig.actionsGroup
-				}, 
+				},
 				{
 					hidden: (!viewConfig.styleGroup),
 					text: getText('Share'),
@@ -1426,7 +1426,7 @@ var RibbonPanel = function(graph, mainPanel, configPanel) {
 							handler: scratchpadFn,
 							xtype: 'menucheckitem',
 							scope: this
-						}, 
+						},
 						'-', {
 							hidden: (!is_editor),
 							text: getText("Import Insight Maker File..."),
@@ -1456,7 +1456,7 @@ var RibbonPanel = function(graph, mainPanel, configPanel) {
 							handler: textEquations,
 							scope: this
 						}, {
-							text: getText('Identify Loops') + "...",
+							text: getText('Identify Loops...'),
 							glyph: 0xf1ce,
 							tooltip: getText('Identify Loops in the Diagram'),
 							handler: doLoops,
@@ -1466,14 +1466,14 @@ var RibbonPanel = function(graph, mainPanel, configPanel) {
 							hidden: (!is_editor) || is_ebook
 						}, {
 							itemId: 'sensitivityBut',
-							text: getText('Sensitivity Testing') + "...",
+							text: getText('Sensitivity Testing...'),
 							glyph: 0xf201,
 							tooltip: getText('Model sensitivity testing'),
 							handler: doSensitivity,
 							scope: this
 						}, {
 							itemId: 'optimizeBut',
-							text: getText('Optimization & Goal Seek') + "...",
+							text: getText('Optimization & Goal Seek...'),
 							glyph: 0xf140,
 							tooltip: getText('Optimize model parameters'),
 							handler: doOptimizer,
@@ -1485,7 +1485,7 @@ var RibbonPanel = function(graph, mainPanel, configPanel) {
 						}, {
 							hidden: (!is_editor) || is_embed || is_ebook,
 							itemId: 'macroBut',
-							text: getText('Macros & Variables') + "...",
+							text: getText('Macros & Variables...'),
 							glyph: 0xf1c9,
 							tooltip: getText('Edit macro functions and constants for use anywhere in your equations'),
 							handler: showMacros,
@@ -1512,7 +1512,7 @@ var RibbonPanel = function(graph, mainPanel, configPanel) {
 					href: '//InsightMaker.com',
 					tooltip: 'Insight Maker Home'
 				}
-				
+
 
 			]
 		})
