@@ -21,6 +21,7 @@ var translations = {
 	"New Stock" : "Neues Lager",
 	"New Variable" : "Neue Variable",
 	"New Converter" : "Neuer Umwandler",
+	"New Text" : "Neuer Text",
 
 	"Flow" : "Fluss",
 	"Flows" : "Flüsse",
@@ -91,7 +92,6 @@ var translations = {
 	"Normal Speed" : "Normal",
 	"Full Speed" : "Maximal",
 
-
 	"Edit" : "Bearbeiten",
 	"Undo" : "Widerrufen",
 	"Redo" : "Wiederholen",
@@ -139,7 +139,45 @@ var translations = {
 	"Macros & Variables..." : "Makros bearbeiten …",
 
 	"Cancel" : "Abbrechen",
-	"Apply" : "Anwenden"
+	"Apply" : "Anwenden",
+
+	"Stock" : "Lager",
+	"Converter" : "Umwandler",
+	"Variable" : "Variable",
+	"General" : "Allgemein",
+	"Note" : "Notiz",
+	"(name)" : "Name",
+	"Slider" : "Schieberegler",
+	"Show Value Slider" : "Regler anzeigen",
+	"Slider Max" : "Regler-Max",
+	"Slider Min" : "Regler-Min",
+	"Slider Step" : "Regler-Schrittweite",
+	"Validation" : "Validierung",
+	"Units" : "Einheit",
+	"Unitless" : "Ohne Einheit",
+	"Max Constraint" : "Max-Bedingung",
+	"Min Constraint" : "Min-Bedingung",
+	"Configuration" : "Einstellungen",
+	"Initial Value" : "Anfangswert",
+	"Allow Negatives" : "Negative Werte",
+	"Flow Rate" : "Änderungsrate",
+	"Only Positive Rates" : "Nur Positive Werte",
+	"Value/Equation" : "Wert/Gleichung",
+	"Interpolation" : "Interpolation",
+	"Input Source" : "Eingabewert",
+	"Input/Output Table" : "Ein-/Ausgabetabelle",
+	"Bi-Directional" : "Bidirektional",
+	"Time" : "Zeit",
+	"Behaviour" : "Verhalten",
+	"Delay" : "Verzögerung",
+	"Behavior" : "Verhalten",
+	"Stock Type" : "Art des Lagers",
+	"Store" : "Speicher",
+	"Conveyor" : "Fließband",
+
+
+	"No" : "Nein",
+	"Yes" : "Ja"
 
 };
 

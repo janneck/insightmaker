@@ -1038,7 +1038,7 @@ var RibbonPanel = function(graph, mainPanel, configPanel) {
 							glyph: 0xf1b2,
 							tooltip: getText('Stocks store material'),
 							handler: function() {
-								var x = createPrimitive("New Stock", "Stock", [240, 80], [100, 40]);
+								var x = createPrimitive(getText("New Stock"), "Stock", [240, 80], [100, 40]);
 								highlight(x);
 
 								graph.orderCells(false);
@@ -1051,7 +1051,7 @@ var RibbonPanel = function(graph, mainPanel, configPanel) {
 							glyph: 0xf0e4,
 							tooltip: getText('Variables can be constant or dynamically updated equations'),
 							handler: function() {
-								highlight(createPrimitive("New Variable", "Variable", [240, 80], [120, 50]))
+								highlight(createPrimitive(getText("New Variable"), "Variable", [240, 80], [120, 50]))
 
 								graph.orderCells(false);
 							}
@@ -1061,7 +1061,7 @@ var RibbonPanel = function(graph, mainPanel, configPanel) {
 							glyph: 0xf1fe,
 							tooltip: getText('Converters can contain graphical functions or input/output tables'),
 							handler: function() {
-								highlight(createPrimitive("New Converter", "Converter", [240, 80], [120, 50]))
+								highlight(createPrimitive(getText("New Converter"), "Converter", [240, 80], [120, 50]))
 
 								graph.orderCells(false);
 							}
@@ -1118,7 +1118,7 @@ var RibbonPanel = function(graph, mainPanel, configPanel) {
 							glyph: 0xf035,
 							tooltip: getText('Annotate your model'),
 							handler: function() {
-								highlight(createPrimitive("New Text", "Text", [240, 80], [200, 50]))
+								highlight(createPrimitive(getText("New Text"), "Text", [240, 80], [200, 50]))
 
 								graph.orderCells(false);
 							}
@@ -1438,7 +1438,7 @@ var RibbonPanel = function(graph, mainPanel, configPanel) {
 							glyph: 0xf019,
 									handler: function(){
 //										new mxXmlRequest(builder_path + "/download.php", $.param({name: "Model", format: "InsightMaker", "data": getGraphXml(graph).replace(/mxGraphModel/g,"InsightMakerModel")})).simulate(document, "_blank");
-										window.open('data:application/binary;charset=utf-8,' + encodeURIComponent(getGraphXml(graph).replace(/mxGraphModel/g,"InsightMakerModel")), '_blank');
+										location.href = 'data:application/binary;charset=utf-8,' + encodeURIComponent(getGraphXml(graph).replace(/mxGraphModel/g,"InsightMakerModel"));
 									}
 						}, {
 							text: getText("Print..."),
