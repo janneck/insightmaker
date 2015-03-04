@@ -2043,8 +2043,8 @@ function showContextMenu(node, e) {
 	
 	if (!selected) {
 		var menuItems = [
-			/*editActions.paste,
-		'-',*/
+			editActions.paste,
+		'-',
 			{
 				text: getText("Create Stock"),
 				glyph: 0xf1b2,
@@ -2096,7 +2096,7 @@ function showContextMenu(node, e) {
 						graph.cellEditor.startEditing(cell)
 					}, 20);
 				}
-			}, '-', {
+			}, /*'-', {
 				text: getText("Create Agent Population"),
 				glyph: 0xf0c0,
 				handler: function() {
@@ -2148,7 +2148,7 @@ function showContextMenu(node, e) {
 						graph.cellEditor.startEditing(cell)
 					}, 20);
 				}
-			}, , '-', {
+			}, */ '-', {
 				text: getText("Create Text"),
 				glyph: 0xf035,
 				handler: function() {
@@ -2184,7 +2184,7 @@ function showContextMenu(node, e) {
 					}, 20);
 				}
 
-			}, {
+			}/*, {
 				text: getText("Create Button"),
 				glyph: 0xf196,
 				handler: function() {
@@ -2201,13 +2201,13 @@ function showContextMenu(node, e) {
 						graph.cellEditor.startEditing(cell)
 					}, 20);
 				}
-			}
+			}*/
 		];
 		if (!is_ebook) {
 
 
 			menuItems = menuItems.concat([
-				'-', {
+				'-', /*{
 					glyph: 0xf0ed,
 					text: getText("Insert Insight Maker Model"),
 					handler: function() {
@@ -2220,10 +2220,10 @@ function showContextMenu(node, e) {
 					handler: function() {
 						exportSvg();
 					}
-				},
+				},*/
 				{
 					itemId: "zoomMenuButton",
-					text: getText('Zoom &amp; Layout'),
+					text: getText('Zoom'),
 					glyph: 0xf002,
 					menu: zoomMenu
 				}
@@ -2235,9 +2235,8 @@ function showContextMenu(node, e) {
 
 	} else {
 		menuItems = [
-			editActions.copy,
 			editActions.cut,
-			'-',
+			editActions.copy,
 			editActions["delete"],
 			'-', {
 				text: getText("Ghost Primitive"),

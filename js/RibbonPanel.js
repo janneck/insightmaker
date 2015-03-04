@@ -1024,7 +1024,7 @@ var RibbonPanel = function(graph, mainPanel, configPanel) {
 					itemId: 'valued',
 					iconCls: 'green-icon',
 					glyph: 0xf055,
-					menu: [{
+					menu: [/*{
 							xtype: "component",
 							indent: false,
 							html: "<b>" + getText('System Dynamics') + "</b>",
@@ -1032,7 +1032,7 @@ var RibbonPanel = function(graph, mainPanel, configPanel) {
 							style: {
 								"margin": "10px 5px 10px 5px"
 							}
-						}, '-', {
+						}, '-',*/ {
 							itemId: 'stock',
 							text: getText('Add Stock'),
 							glyph: 0xf1b2,
@@ -1101,7 +1101,7 @@ var RibbonPanel = function(graph, mainPanel, configPanel) {
 
 								graph.orderCells(false);
 							}
-						},*/
+						},
 						'-', {
 
 							xtype: "component",
@@ -1111,7 +1111,7 @@ var RibbonPanel = function(graph, mainPanel, configPanel) {
 							style: {
 								"margin": "10px 5px 10px 5px"
 							}
-						},
+						},*/
 						'-', {
 							itemId: 'text',
 							text: getText('Add Text Field'),
